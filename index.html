@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Focus Flow</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main class="app">
+      <header class="app__header">
+        <div>
+          <p class="eyebrow">Daily clarity</p>
+          <h1>Focus Flow</h1>
+          <p class="subtitle">Plan your day with a calm, visual workflow.</p>
+        </div>
+        <div class="app__time" id="time"></div>
+      </header>
+
+      <section class="app__grid">
+        <article class="card">
+          <h2>Top priorities</h2>
+          <form id="priority-form" class="form">
+            <input
+              type="text"
+              id="priority-input"
+              placeholder="Add a priority"
+              aria-label="Add a priority"
+              required
+            />
+            <button type="submit">Add</button>
+          </form>
+          <ul id="priority-list" class="list" aria-live="polite"></ul>
+        </article>
+
+        <article class="card">
+          <h2>Energy check-in</h2>
+          <div class="energy">
+            <p>How are you feeling right now?</p>
+            <div class="energy__buttons" role="group" aria-label="Energy levels">
+              <button type="button" data-energy="Low">Low</button>
+              <button type="button" data-energy="Steady">Steady</button>
+              <button type="button" data-energy="High">High</button>
+            </div>
+            <p class="energy__status" id="energy-status">Select an energy level.</p>
+          </div>
+        </article>
+
+        <article class="card card--wide">
+          <h2>Focus session</h2>
+          <div class="focus">
+            <div class="focus__timer" id="timer">25:00</div>
+            <div class="focus__controls">
+              <button type="button" id="start">Start</button>
+              <button type="button" id="pause" disabled>Pause</button>
+              <button type="button" id="reset" disabled>Reset</button>
+            </div>
+            <label class="focus__length">
+              Session length
+              <input type="range" id="length" min="10" max="50" value="25" />
+              <span id="length-value">25 min</span>
+            </label>
+          </div>
+        </article>
+      </section>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
