@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pulse Planner</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="page">
+      <header class="hero">
+        <div>
+          <p class="eyebrow">Mindful productivity</p>
+          <h1>Pulse Planner</h1>
+          <p class="subtitle">
+            Stay grounded with a gentle plan, a focus session, and a snapshot of
+            your day.
+          </p>
+        </div>
+        <div class="hero__meta">
+          <div class="clock" id="time"></div>
+          <div class="pill">
+            <span id="date"></span>
+          </div>
+        </div>
+      </header>
+
+      <main class="grid">
+        <section class="card">
+          <header class="card__header">
+            <h2>Priority board</h2>
+            <span class="card__badge" id="priority-count">0 items</span>
+          </header>
+          <form id="priority-form" class="form">
+            <input
+              type="text"
+              id="priority-input"
+              placeholder="Add a priority"
+              aria-label="Add a priority"
+              required
+            />
+            <select id="priority-tag" aria-label="Priority tag">
+              <option value="Deep work">Deep work</option>
+              <option value="Admin">Admin</option>
+              <option value="Creative">Creative</option>
+              <option value="Personal">Personal</option>
+            </select>
+            <button type="submit">Add</button>
+          </form>
+          <ul id="priority-list" class="list" aria-live="polite"></ul>
+        </section>
+
+        <section class="card">
+          <header class="card__header">
+            <h2>Energy check-in</h2>
+            <span class="card__badge" id="energy-status">Not set</span>
+          </header>
+          <p class="muted">How are you feeling right now?</p>
+          <div class="energy" role="group" aria-label="Energy levels">
+            <button type="button" data-energy="Low">😌 Low</button>
+            <button type="button" data-energy="Steady">🙂 Steady</button>
+            <button type="button" data-energy="High">⚡ High</button>
+          </div>
+          <div class="notes">
+            <label for="reflection">Quick reflection</label>
+            <textarea
+              id="reflection"
+              rows="3"
+              placeholder="What will make today feel like a win?"
+            ></textarea>
+          </div>
+        </section>
+
+        <section class="card card--wide">
+          <header class="card__header">
+            <h2>Focus session</h2>
+            <span class="card__badge" id="session-status">Ready</span>
+          </header>
+          <div class="focus">
+            <div class="focus__timer" id="timer">25:00</div>
+            <div class="focus__controls">
+              <button type="button" id="start">Start</button>
+              <button type="button" id="pause" disabled>Pause</button>
+              <button type="button" id="reset" disabled>Reset</button>
+            </div>
+            <label class="focus__length">
+              Session length
+              <input type="range" id="length" min="10" max="50" value="25" />
+              <span id="length-value">25 min</span>
+            </label>
+            <label class="toggle">
+              <input type="checkbox" id="break-toggle" />
+              <span>Auto-schedule a 5 minute break</span>
+            </label>
+          </div>
+        </section>
+
+        <section class="card">
+          <header class="card__header">
+            <h2>Day flow</h2>
+            <span class="card__badge" id="flow-status">Morning</span>
+          </header>
+          <div class="timeline">
+            <div class="timeline__row">
+              <span>Morning</span>
+              <div class="timeline__bar">
+                <div class="timeline__fill" id="flow-fill"></div>
+              </div>
+              <span id="flow-time">08:00</span>
+            </div>
+            <ul class="timeline__list">
+              <li>Deep work block</li>
+              <li>Walk &amp; recharge</li>
+              <li>Collaboration hour</li>
+            </ul>
+          </div>
+        </section>
+
+        <section class="card">
+          <header class="card__header">
+            <h2>Stats</h2>
+            <span class="card__badge">Today</span>
+          </header>
+          <div class="stats">
+            <div>
+              <p class="stats__label">Completed</p>
+              <p class="stats__value" id="completed-count">0</p>
+            </div>
+            <div>
+              <p class="stats__label">Remaining</p>
+              <p class="stats__value" id="remaining-count">0</p>
+            </div>
+            <div>
+              <p class="stats__label">Focus streak</p>
+              <p class="stats__value">2 sessions</p>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
